@@ -10,7 +10,7 @@ html {
 .dropdown-content {
 	display: none;
 	position: absolute;
-	min-width: 400px;
+	min-width: 600px;
 	padding: 12px 16px;
 	z-index: 1;
 	background-color: white;
