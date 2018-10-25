@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="defaultlook.css">
+		<meta charset="utf-8">
+		<title>Radio</title>
+		<script>
+			var tag = document.createElement('script');
+
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			var player;
+
+			function onYouTubeIframeAPIReady() {
+			  player = new YT.Player('player', {
+				height: '390',
+				width: '640',
+				events: {
+				  'onReady': onPlayerReady
+				},
+				playerVars: {
+				  listType: 'playlist',
+				  list: 'PLOy0j9AvlVZPto6IkjKfpu0Scx--7PGTC'
+				}
+			  });
+			}
+
+			function onPlayerReady(event) {
+			  num = Math.floor(Math.random() * 150);
+
+			  setTimeout(() => {
+				player.playVideoAt(num);
+			  }, 1000);
+			}
+    </script>
+		</script>
+	</head>
+
+	<body>
+		<p style="text-align:center">
+			Plays a random song from a list everytime you refresh.<br> Press the Shuffle button to get a new song.
+		</p>
+		<div class="player">
+		
+		</div>
+		<p style="text-align:center"><button onClick="newVideo()">Shuffle</button></p>
+
+	</body>
+</html>
