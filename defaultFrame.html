@@ -11,11 +11,21 @@
 		</style>
 		<title>U shouldn't see this</title>
 	</head>
-	<body>
+	<body onLoad="showDate()">
 		<p style="text-align:center;">
 			This is the home page of the site. Click on the links above to look around.
 		</p>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<h2 id="time" style="text-align:center;"></h2>
+		
+		<script>
+	 	function showDate(){
+			var time = document.getElementById('time');
+			time.innerHTML = Date();
+			var time = setTimeout(showDate, 500)
+		}
+		</script>
+		<br><br><br><br><br><br><br><br><br><br><br>
 		<p style="color: whitesmoke"><a href="secret.html" target="mainFrame">E</a></p>
 		<br>
 		<p style="float: right;">
