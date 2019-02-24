@@ -26,7 +26,6 @@
 			var hours = date.getHours();
 			var minutes = date.getMinutes();
 			var seconds = date.getSeconds();
-			var clock = hours + ':' + minutes + ':' + seconds;
 			var day = date.getDate();
 			var month = date.getMonth();
 			var year = date.getFullYear();
@@ -77,6 +76,7 @@
 				seconds = '0' + seconds;
 			}
 			var theDate = month + ' ' + day + ', ' + year;
+			var clock = hours + ':' + minutes + ':' + seconds;
 			document.getElementById('date').innerHTML = theDate;
 			document.getElementById('time').innerHTML = clock; 
 			setTimeout(showDate, 500)
