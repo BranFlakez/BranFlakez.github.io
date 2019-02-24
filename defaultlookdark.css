@@ -4,6 +4,12 @@ html {
 	background-color: darkslategray;
 	color: lightgray;
 }
+button {
+				padding: 7px;
+				border-radius: 7px;
+				background-color: darkgrey;
+				border-color: grey;
+}
 .dropdown {
 	position: relative;
 	display: inline-block;

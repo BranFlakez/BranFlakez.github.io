@@ -3,6 +3,12 @@ html {
 	font-size: 18px;
 	background-color: whitesmoke;
 }
+button {
+				padding: 7px;
+				border-radius: 7px;
+				background-color: darkgrey;
+				border-color: grey;
+}
 .dropdown {
 	position: relative;
 	display: inline-block;
