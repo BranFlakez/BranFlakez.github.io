@@ -15,14 +15,65 @@
 		<p style="text-align:center;">
 			This is the home page of the site. Click on the links above to look around.
 		</p>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br>
+		<h2 style="text-align: center;">Time:</h2>
 		<h2 id="time" style="text-align:center;"></h2>
-		
+		<h2 style="text-align:center;">Date:</h2>
+		<h2 id="date" style="text-align:center;"></h2>
 		<script>
 	 	function showDate(){
-			var time = document.getElementById('time');
-			time.innerHTML = Date();
-			var time = setTimeout(showDate, 500)
+			var date = new Date();
+			var hours = date.getHours();
+			var minutes = date.getMinutes();
+			var seconds = date.getSeconds();
+			var clock = hours + ':' + minutes + ':' + seconds;
+			var day = date.getDate();
+			var month = date.getMonth();
+			var year = date.getFullYear();
+			switch(month){
+				case 0:
+					month = 'January';
+					break;
+				case 1:
+					month = 'February';
+					break;
+				case 2:
+					month = 'March';
+					break;
+				case 3:
+					month = 'April';
+					break;
+				case 4:
+					month = 'May';
+					break;
+				case 5:
+					month = 'June';
+					break;
+				case 6:
+					month = 'July';
+					break;
+				case 7:
+					month = 'August';
+					break;
+				case 8:
+					month = 'September';
+					break;
+				case 9:
+					month = 'October';
+					break;
+				case 10:
+					month = 'November';
+					break;
+				case 11:
+					month = 'December';
+					break;
+				default:
+					null;
+			};
+			var theDate = month + ' ' + day + ', ' + year;
+			document.getElementById('date').innerHTML = theDate;
+			document.getElementById('time').innerHTML = clock; 
+			setTimeout(showDate, 500)
 		}
 		</script>
 		<br><br><br><br><br><br><br><br><br><br><br>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Rock Paper Scissors</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="defaultlookdark.css" />
+		<style>
+			body{
+				font-family: 'Arial';
+				font-size: 24px;
+			}
+			button {
+				padding: 7px;
+				border-radius: 7px;
+				background-color: darkgrey;
+				border-color: grey;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<h1 style="text-align: center;">Rock, Paper, <span onClick="showCheats()">Scissors</span></h1>
+		<h3 style="text-align: center;">Choose rock paper or scissors, Rock beats scissors, paper beats rock, scissors beat paper.</h3>
+		<div style="text-align: center;" id="imageContainer">
+			<img src="rock.png" alt="" onClick="pickRock(),runGame()" style="cursor: pointer;" />
+			&nbsp;
+			<img src="paper.png" alt="" onClick="pickPaper(),runGame()" style="cursor: pointer;" />
+			&nbsp;
+			<img src="scissors.png" alt="" onClick="pickScissors(),runGame()" style="cursor: pointer;" />
+		</div>
+		<div id="chet">
+			
+		</div>
+		<script>
+			//this is for the cheats
+			var cheat = '';
+			function showCheats(){
+				document.getElementById('chet').innerHTML = '<input type="text" id="cheatBox" /><button onClick="enterCheat()">Enter</button>'
+			}
+			function enterCheat(){
+				cheat = document.getElementById('cheatBox').value;
+				document.getElementById('chet').innerHTML = '';
+				if (cheat == 'alwaysWin2019'){
+					document.getElementById('chet').innerHTML = '<p>cheat active</p>';
+				}
+			}
+		</script>
+		<script>
+			//here on is the core game 
+			var userChoice = '';
+			var winner = '';
+			var botChoice = 0;
+			function pickRock(){
+				userChoice = 'rock';
+				runGame()
+			};
+			function pickPaper(){
+				userChoice = 'paper';
+				runGame()
+			};
+			function pickScissors(){
+				userChoice = 'scissors';
+				runGame()
+			};
+			function runGame(){
+				botChoice = Math.floor(Math.random() * 3);
+				if (botChoice == 0){
+					botChoice = 'rock';
+				} else if (botChoice == 1){
+					botChoice = 'paper';
+				} else {
+					botChoice = 'scissors';
+				}
+				
+				if (botChoice == 'rock' && userChoice == 'rock'){
+					winner = 'tie';
+				} else if (botChoice == 'rock' && userChoice == 'paper'){
+					winner = 'player';
+				} else if (botChoice == 'rock' && userChoice == 'scissors'){
+					winner = 'bot';
+				} else if (botChoice == 'paper' && userChoice == 'rock'){
+					winner = 'bot';
+				} else if (botChoice == 'paper' && userChoice == 'paper'){
+					winner = 'tie';
+				} else if (botChoice == 'paper' && userChoice == 'scissors'){
+					winner = 'player';
+				} else if (botChoice == 'scissors' && userChoice == 'rock'){
+					winner = 'player';
+				} else if (botChoice == 'scissors' && userChoice == 'paper'){
+					winner = 'bot';
+				} else if (botChoice == 'scissors' && userChoice == 'scissors'){
+					winner = 'tie';
+				}
+				if (cheat == 'alwaysWin2019'){
+					winner = 'player';
+				}
+				setTimeout(countDownOne, 500);
+			};
+			function countDownOne(){
+				document.getElementById('imageContainer').innerHTML = '<h1 style="text-align: center; font-size: 50px;">Rock</h1>';
+				setTimeout(countDownTwo, 500)
+			};
+			function countDownTwo(){
+				document.getElementById('imageContainer').innerHTML = '<h1 style="text-align: center; font-size: 50px;">Paper</h1>';
+				setTimeout(countDownThree, 500)
+			};
+			function countDownThree(){
+				document.getElementById('imageContainer').innerHTML = '<h1 style="text-align: center; font-size: 50px;">Scissors</h1>';
+				setTimeout(countDownFour, 500)
+			};
+			function countDownFour(){
+				document.getElementById('imageContainer').innerHTML = '<h1 style="text-align: center; font-size: 50px;">Shoot!</h1>';
+				setTimeout(displayResult, 500)
+			}
+			function displayResult(){
+				if (winner == 'player'){
+					document.getElementById('imageContainer').innerHTML = '<h1 style="text-align:center;">You WIN!</h1><br><h3 style="text-align:center">The computer picked ' + botChoice + ' and you picked ' + userChoice + '.</h3><br><button style="text-align:center;" onClick="reset()">Play Again</button>'
+				} else if (winner == 'bot'){
+					document.getElementById('imageContainer').innerHTML = '<h1 style="text-align:center;">You lose.</h1><br><h3 style="text-align:center">The computer picked ' + botChoice + ' and you picked ' + userChoice + '.</h3><br><button style="text-align:center;" onClick="reset()">Play Again</button>'
+				} else if (winner == 'tie'){
+					document.getElementById('imageContainer').innerHTML = '<h1 style="text-align:center;">It was a tie.</h1><br><h3 style="text-align:center">The computer picked ' + botChoice + ' and you picked ' + userChoice + '.</h3><br><button style="text-align:center;" onClick="reset()">Play Again</button>'
+				} else{
+					document.getElementById('imageContainer').innerHTML = '<h1 style="text-align:center;">Error.</h1><button style="text-align:center;" onClick="reset()">Play Again</button>'
+				};
+			};
+			function reset(){
+				document.getElementById('imageContainer').innerHTML = '<img src="rock.png" alt="" onClick="pickRock(),runGame()" style="cursor: pointer;" />&nbsp;<img src="paper.png" alt="" onClick="pickPaper(),runGame()" style="cursor: pointer;" />&nbsp;<img src="scissors.png" alt="" onClick="pickScissors(),runGame()" style="cursor: pointer;" />';
+			};
+		</script>
+	</body>
+</html>
