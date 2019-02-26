@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="defaultlook.css">
+		<link id="styleSheet" rel="stylesheet" type="text/css" href="defaultlook.css">
 		<style>
 			.reddit-card {
 				background-color: white;
@@ -27,6 +27,12 @@
 		<title>Reddit things</title>
 	</head>
 	<body>
+		<script>
+			if(parent.currentStyleSheet == 'dark'){
+				document.getElementById('styleSheet').setAttribute("href", "defaultlookdark.css")
+			}
+		</script>
+		<h1>This whole page needs a complete redesign, I will get to that one day if I ever start updating it again.</h1>
 		<h2 style="text-align: center">
 			Hover over a link to view the post or click it to go to <a href="https://www.reddit.com/" target="new">reddit</a>.
 		</h2>
@@ -39,7 +45,7 @@
 		<h3 style="text-align:center">
 			Some posts that I thought were interesting or funny.
 		</h3>
-		<div class="row">
+		<div class="row" style="margin-left: 250px;">
 			<div class="column">
 				<h4>
 					<blockquote>Recently Added Posts</blockquote>

@@ -4,11 +4,35 @@ html {
 	background-color: whitesmoke;
 }
 button {
-				padding: 7px;
-				border-radius: 7px;
-				background-color: darkgrey;
-				border-color: grey;
+	padding: 7px;
+	border-radius: 7px;
+	background-color: darkgrey;
+	border-color: grey;
+	box-shadow: 2px 2px;
 }
+
+#navBar{
+	list-style-type: none;
+	background-color: darkgray;
+	top: 0px;
+	margin: -8px;
+	padding: 0px;
+	overflow: auto;
+	position: sticky;
+}
+.navBarLink{
+	text-decoration: none;
+	display: block;
+	padding: 10px;
+	color: yellow;
+}
+.navBarElement{
+	float: left;
+}
+.navBarLink:hover {
+	background-color: black;
+}
+
 .dropdown {
 	position: relative;
 	display: inline-block;

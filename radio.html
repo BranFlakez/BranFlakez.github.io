@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="defaultlook.css">
+		<link id="styleSheet" rel="stylesheet" type="text/css" href="defaultlook.css">
 		<meta charset="utf-8">
 		<title>Radio</title>
 		<script>
@@ -32,6 +32,11 @@
 	</head>
 
 	<body onLoad="newVideo()">
+		<script>
+			if(parent.currentStyleSheet == 'dark'){
+				document.getElementById('styleSheet').setAttribute("href", "defaultlookdark.css")
+			}
+		</script>
 		<p style="text-align:center">
 			Plays a random song from a list everytime you refresh or press the Shuffle button to get a new song.
 		</p>

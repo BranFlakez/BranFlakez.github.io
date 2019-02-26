@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Rock Paper Scissors</title>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="defaultlook.css" />
+		<link id="styleSheet" rel="stylesheet" type="text/css" href="defaultlook.css" />
 		<style>
 			body{
 				font-family: 'Arial';
@@ -21,6 +21,11 @@
 	</head>
 
 	<body>
+		<script>
+			if(parent.currentStyleSheet == 'dark'){
+				document.getElementById('styleSheet').setAttribute("href", "defaultlookdark.css")
+			}
+		</script>
 		<h1 style="text-align: center;">Rock, Paper, <span onClick="showCheats()">Scissors</span></h1>
 		<h3 style="text-align: center;">Choose rock paper or scissors, Rock beats scissors, paper beats rock, scissors beat paper.</h3>
 		<div style="text-align: center;" id="imageContainer">

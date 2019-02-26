@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="defaultlook.css">
+		<link id="styleSheet" rel="stylesheet" type="text/css" href="defaultlook.css">
 		<style>
 			p {
 				text-align: center;
@@ -10,6 +10,11 @@
 		</style>
 	</head>
 	<body>
+		<script>
+			if(parent.currentStyleSheet == 'dark'){
+				document.getElementById('styleSheet').setAttribute("href", "defaultlookdark.css")
+			}
+		</script>
 		<br><br><br><br><br>
 		<p>
 			<iframe width="960" height="540" src="https://www.youtube.com/embed/hHW1oY26kxQ?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

@@ -2,18 +2,18 @@
 <html>
 	<head>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-		<link id="pageStyle" rel="stylesheet" type="text/css" href="defaultlook.css">
-		<style>
-			a {
-				text-decoration:none;
-				color: whitesmoke;
-			}
-		</style>
+		<link id="styleSheet" rel="stylesheet" type="text/css" href="defaultlook.css">
+		<script type="text/javascript" src="clock.js"></script>
 		<title>U shouldn't see this</title>
 	</head>
 	<body onLoad="showDate()">
+		<script>
+			if(parent.currentStyleSheet == 'dark'){
+				document.getElementById('styleSheet').setAttribute("href", "defaultlookdark.css")
+			}
+		</script>
 		<p style="text-align:center;">
-			This is the home page of the site. Click on the links above to look around.
+			This is the home page of the site. <span onClick="parent.showRedditStuff()">Click</span> on the links above to look around.
 		</p>
 		<br><br><br><br><br><br><br><br><br>
 		<h2 style="text-align: center;">Time:</h2>
@@ -21,74 +21,42 @@
 		<h2 style="text-align:center;">Date:</h2>
 		<h2 id="date" style="text-align:center;"></h2>
 		<script>
-	 	function showDate(){
-			var date = new Date();
-			var hours = date.getHours();
-			var minutes = date.getMinutes();
-			var seconds = date.getSeconds();
-			var day = date.getDate();
-			var month = date.getMonth();
-			var year = date.getFullYear();
-			switch(month){
-				case 0:
-					month = 'January';
-					break;
-				case 1:
-					month = 'February';
-					break;
-				case 2:
-					month = 'March';
-					break;
-				case 3:
-					month = 'April';
-					break;
-				case 4:
-					month = 'May';
-					break;
-				case 5:
-					month = 'June';
-					break;
-				case 6:
-					month = 'July';
-					break;
-				case 7:
-					month = 'August';
-					break;
-				case 8:
-					month = 'September';
-					break;
-				case 9:
-					month = 'October';
-					break;
-				case 10:
-					month = 'November';
-					break;
-				case 11:
-					month = 'December';
-					break;
-				default:
-					null;
-			};
-			if (minutes < 10){
-				minutes = '0' + minutes;
+		var currentStyleSheet = parent.currentStyleSheet;
+		var currentButtonStyle = 'dark';
+		function changeStyleSheet(){
+			if(currentStyleSheet == 'light'){
+				document.getElementById('styleSheet').setAttribute("href", "defaultlookdark.css");
+				parent.changeStyleSheet();
+				currentStyleSheet = 'dark';
+			} else if(currentStyleSheet == 'dark'){
+				document.getElementById('styleSheet').setAttribute("href", "defaultlook.css");
+				parent.changeStyleSheet();
+				currentStyleSheet = 'light';
 			}
-			if (seconds < 10){
-				seconds = '0' + seconds;
+		}
+		function changeButton(){
+			if(currentButtonStyle == 'dark'){
+				document.getElementById('darkModeButton').innerHTML = '<button onClick="changeStyleSheet(), changeButton()" style="display: block; text-decoration: none; background-color: white; color:black ; padding: 8px 16px; float: right;"><b>Light Mode</b></button>';
+				currentButtonStyle = 'light';
+			} else if(currentButtonStyle == 'light'){
+				document.getElementById('darkModeButton').innerHTML = '<button onClick="changeStyleSheet(), changeButton()" style="display: block; text-decoration: none; background-color: black; color:yellow; padding: 8px 16px; float: right;"><b>Dark Mode</b></button>';
+				currentButtonStyle = 'dark';
 			}
-			var theDate = month + ' ' + day + ', ' + year;
-			var clock = hours + ':' + minutes + ':' + seconds;
-			document.getElementById('date').innerHTML = theDate;
-			document.getElementById('time').innerHTML = clock; 
-			setTimeout(showDate, 500)
 		}
 		</script>
-		<br><br><br><br><br><br><br><br><br><br><br>
-		<p style="color: whitesmoke"><a href="secret.html" target="mainFrame">E</a></p>
+		<br><br><br><br><br><br><br><br><br><br><br><br>
 		<br>
 		<p style="float: right;">
-			<a href="indexDark.html" target="_parent" style="display: block; text-decoration: none; background-color: black; color:yellow; padding: 8px 16px;">
-				Dark Mode
-			</a>
+			<div id="darkModeButton">
+				<button onClick="changeStyleSheet(), changeButton()" style="display: block; text-decoration: none; background-color: black; color:yellow; padding: 8px 16px; float: right;"><b>
+					Dark Mode
+				</b></button>
+			</div>
 		</p>
+		<script>
+			if (currentStyleSheet == 'dark'){
+				changeButton()
+			};
+		</script>
 	</body>
 </html>
