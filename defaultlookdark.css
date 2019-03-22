@@ -1,8 +1,8 @@
 html {
 	font-family: "Arial";
 	font-size: 18px;
-	background-color: darkslategray;
-	color: lightgray;
+	background-color: rgb(60, 60, 60);
+	color: darkgray;
 }
 button {
 	padding: 7px;
